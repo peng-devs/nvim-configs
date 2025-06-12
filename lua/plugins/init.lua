@@ -1,0 +1,2 @@
+-- lazy.nvim plugin manager initialization
+-- This file will be populated with plugin configurations in the next step
