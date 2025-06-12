@@ -2,7 +2,7 @@
 function reload_config()
   dofile(vim.fn.stdpath('config') .. '/init.lua')
 end
-vim.keymap.set("n", "<leader>sv", reload_config, { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>pr", reload_config, { noremap = true, silent = true, desc = "Reload configs" })
 
 -- buffer/window controll
 vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true, silent = true })
