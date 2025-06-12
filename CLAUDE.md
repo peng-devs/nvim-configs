@@ -54,7 +54,7 @@ dofile(vim.fn.stdpath('config') .. '/init.lua')
 │   ├── core/              # 核心配置模組
 │   │   ├── options.lua    # 編輯器選項 (替代舊的 settings.lua)
 │   │   └── keymaps.lua    # 按鍵映射定義
-│   └── plugins/           # 套件管理 (準備中，使用 lazy.nvim)
+│   └── plugins/           # 套件管理 (使用 lazy.nvim)
 │       └── init.lua       # lazy.nvim 初始化設定
 ├── docs      
 │   └── NVIM_IDE_PLAN.md   # IDE 升級計劃
@@ -94,11 +94,16 @@ dofile(vim.fn.stdpath('config') .. '/init.lua')
 - Visual mode 中的 `Y` 映射到 `clip.exe` 實現 Windows 剪貼簿整合
 - 支援 WSL 環境下的檔案操作
 
+## 套件管理
+
+- **已完成**: lazy.nvim 套件管理系統
+- **按鍵映射**: `<leader>pm` - 開啟套件管理器
+
 ## 開發中功能
 
 參考 `NVIM_IDE_PLAN.md` 了解正在規劃的 IDE 功能升級，包括：
-- lazy.nvim 套件管理
-- LSP 支援 (mason + lspconfig)
-- 自動完成 (nvim-cmp)
-- 檔案搜尋 (telescope)
-- 語法高亮 (treesitter)
+- ✅ lazy.nvim 套件管理
+- ❌ LSP 支援 (mason + lspconfig)
+- ❌ 自動完成 (nvim-cmp)
+- ❌ 檔案搜尋 (telescope)
+- ❌ 語法高亮 (treesitter)

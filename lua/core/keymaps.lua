@@ -31,3 +31,6 @@ vim.keymap.set("v", "Y", ":w !clip.exe<cr><cr>", { noremap = true, silent = true
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+
+-- 套件管理
+vim.keymap.set("n", "<leader>pm", ":Lazy<cr>", { desc = "Open Package Manager" })
