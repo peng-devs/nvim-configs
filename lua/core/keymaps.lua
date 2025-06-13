@@ -1,9 +1,3 @@
--- quick config
-function reload_config()
-  dofile(vim.fn.stdpath('config') .. '/init.lua')
-end
-vim.keymap.set("n", "<leader>pr", reload_config, { noremap = true, silent = true, desc = "Reload configs" })
-
 -- buffer/window controll
 vim.keymap.set("n", "<leader>q", ":qa<cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>Q", ":qa!<cr>", { noremap = true, silent = true })
@@ -28,7 +22,7 @@ vim.keymap.set("v", "B", "^", { noremap = true, silent = true })
 vim.keymap.set("v", "E", "$", { noremap = true, silent = true })
 vim.keymap.set(
   'v',
-  'Y', 
+  'Y',
   -- 將選取的文字通過管道傳給 iconv 轉換為 UTF-16LE，然後再傳給 clip.exe
   ':w !iconv -f UTF-8 -t UTF-16LE | clip.exe<cr><cr>',
   {
