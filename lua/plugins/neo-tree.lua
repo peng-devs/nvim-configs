@@ -38,6 +38,17 @@ return {
         follow_current_file = {
           enabled = true,
         },
+        hijack_netrw_behavior = "open_current",
+        use_libuv_file_watcher = true,
+      },
+      event_handlers = {
+        {
+          event = "file_opened",
+          handler = function(file_path)
+            -- 在檔案開啟後，重新 focus 到 neo-tree window
+            vim.cmd("wincmd p")
+          end
+        },
       },
       default_component_configs = {
         git_status = {
