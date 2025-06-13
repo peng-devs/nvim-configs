@@ -37,6 +37,16 @@ vim.keymap.set(
     desc = 'Copy selected text to Windows clipboard (UTF-8 compatible)'
   }
 )
+vim.keymap.set(
+  'n',
+  'P',
+  ':read !wsl_paste_from_windows.sh<CR>', -- 透過 :read ! 執行外部腳本並將其輸出插入
+  {
+    noremap = true,
+    silent = true,
+    desc = 'Paste from Windows clipboard via shell script'
+  }
+)
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
