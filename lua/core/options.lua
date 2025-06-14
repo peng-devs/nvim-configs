@@ -2,7 +2,7 @@
 vim.o.showmode = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.o.mouse = 'a'
+vim.o.mouse = "a"
 
 -- Enable break indent
 vim.o.breakindent = true
@@ -25,7 +25,7 @@ vim.o.confirm = true
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true
-vim.o.signcolumn = 'number'
+vim.o.signcolumn = "number"
 
 -- keep the cursor in the middle
 vim.o.scrolloff = 999
@@ -48,4 +48,3 @@ vim.cmd("highlight Normal guibg=NONE ctermbg=NONE")
 -- disable for nvim-tree
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
