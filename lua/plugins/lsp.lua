@@ -6,12 +6,18 @@ return {
 			require("mason").setup()
 		end,
 	},
-
 	{
 		"neovim/nvim-lspconfig",
-		dependencies = { "mason-org/mason.nvim", "saghen/blink.cmp" },
+		dependencies = {
+			"mason-org/mason.nvim",
+			"saghen/blink.cmp", -- 確保 blink.cmp 先載入
+		},
 		config = function()
 			local lspconfig = require("lspconfig")
+
+			-- 取得 blink.cmp 的 capabilities
+			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
 			-- LSP 按鍵綁定
 			local on_attach = function(_, bufnr)
 				local function buf_set_keymap(...)
@@ -55,8 +61,6 @@ return {
 					source = true,
 				},
 			})
-
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 			-- 手動設定每個 LSP
 			-- Lua
