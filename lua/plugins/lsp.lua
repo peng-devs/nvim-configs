@@ -84,10 +84,41 @@ return {
 			lspconfig.ts_ls.setup({
 				on_attach = on_attach,
 				capabilities = capabilities,
+				settings = {
+					typescript = {
+						format = {
+							enable = false, -- 讓 prettier 處理格式化
+						},
+					},
+					javascript = {
+						format = {
+							enable = false,
+						},
+					},
+				},
+				commands = {
+					OrganizeImports = {
+						function()
+							local params = {
+								command = "_typescript.organizeImports",
+								arguments = { vim.api.nvim_buf_get_name(0) },
+								title = "",
+							}
+							vim.lsp.buf.execute_command(params)
+						end,
+						description = "Organize Imports",
+					},
+				},
+			})
+
+			-- Svelte
+			lspconfig.svelte.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
 			})
 
 			-- 其他 LSP
-			local servers = { "svelte", "html", "cssls", "jsonls", "yamlls", "sqlls", "bashls" }
+			local servers = { "html", "cssls", "jsonls", "yamlls", "sqlls", "bashls" }
 			for _, server in ipairs(servers) do
 				lspconfig[server].setup({
 					on_attach = on_attach,
@@ -97,6 +128,34 @@ return {
 
 			-- Telescope 診斷查詢快捷鍵
 			vim.keymap.set("n", "<leader>fd", "<cmd>Telescope diagnostics<CR>", { desc = "搜尋診斷" })
+
+			-- 手動整理 imports
+			vim.keymap.set("n", "<leader>co", function()
+				local filetype = vim.bo.filetype
+
+				if
+					filetype == "typescript"
+					or filetype == "javascript"
+					or filetype == "typescriptreact"
+					or filetype == "javascriptreact"
+				then
+					-- TypeScript/JavaScript
+					local params = {
+						command = "_typescript.organizeImports",
+						arguments = { vim.api.nvim_buf_get_name(0) },
+					}
+					vim.lsp.buf.execute_command(params)
+				elseif filetype == "svelte" then
+					-- Svelte 使用 code action
+					vim.lsp.buf.code_action({
+						context = {
+							only = { "source.organizeImports" },
+							diagnostics = {},
+						},
+						apply = true,
+					})
+				end
+			end, { desc = "Organize Imports" })
 		end,
 	},
 }
