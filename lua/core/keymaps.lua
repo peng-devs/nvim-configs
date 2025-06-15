@@ -57,7 +57,6 @@ vim.api.nvim_create_autocmd("BufDelete", {
 		local bufname = vim.api.nvim_buf_get_name(ev.buf)
 		if bufname ~= "" then
 			table.insert(closed_buffers, 1, bufname)
-			print("Save closed buffer")
 		end
 	end,
 })
@@ -67,8 +66,5 @@ vim.keymap.set("n", "<leader>X", function()
 	if #closed_buffers > 0 then
 		local last = table.remove(closed_buffers, 1)
 		vim.cmd("edit " .. vim.fn.fnameescape(last))
-		print("Reopen buffer")
-	else
-		print("No closed buffer")
 	end
 end, { noremap = true })
