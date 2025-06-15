@@ -1,5 +1,8 @@
 return {
 	"olimorris/persisted.nvim",
+	dependencies = {
+		"nvim-telescope/telescope.nvim",
+	},
 	lazy = false,
 	config = function()
 		require("persisted").setup({
@@ -14,7 +17,4 @@ return {
 		-- Telescope integration
 		vim.keymap.set("n", "<leader>fs", "<cmd>Telescope persisted<CR>", { desc = "搜尋 sessions" })
 	end,
-	dependencies = {
-		"nvim-telescope/telescope.nvim",
-	},
 }
