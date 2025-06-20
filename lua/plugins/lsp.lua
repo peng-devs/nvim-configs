@@ -109,6 +109,16 @@ return {
 						description = "Organize Imports",
 					},
 				},
+				init_options = {
+					plugins = {
+						{
+							name = "typescript-svelte-plugin",
+							location = vim.fn.expand(
+								"~/.local/share/nvim/mason/packages/svelte-language-server/node_modules/typescript-svelte-plugin"
+							),
+						},
+					},
+				},
 			})
 
 			-- Svelte
