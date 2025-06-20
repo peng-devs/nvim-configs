@@ -18,6 +18,12 @@ return {
 			-- 取得 blink.cmp 的 capabilities
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+			-- See nvim-ufo setup
+			capabilities.textDocument.foldingRange = {
+				dynamicRegistration = false,
+				lineFoldingOnly = true,
+			}
+
 			-- LSP 按鍵綁定
 			local on_attach = function(_, bufnr)
 				local function buf_set_keymap(...)

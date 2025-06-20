@@ -25,9 +25,12 @@ return {
 				"gitcommit",
 				"gitignore",
 			},
+			modules = {},
+			ignore_install = {},
 
 			-- 自動安裝 parsers
 			auto_install = true,
+			sync_install = false,
 
 			-- 語法高亮
 			highlight = {
