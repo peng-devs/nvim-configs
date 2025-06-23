@@ -62,5 +62,11 @@ return {
 				},
 			},
 		})
+
+		vim.filetype.add({
+			extension = {
+				mjml = "html", -- 讓 .mjml 使用 html 語法
+			},
+		})
 	end,
 }
