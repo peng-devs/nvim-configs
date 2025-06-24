@@ -95,6 +95,13 @@ return {
 						format = {
 							enable = false, -- 讓 prettier 處理格式化
 						},
+						preferences = {
+							preferTypeOnlyAutoImports = true,
+						},
+						suggest = {
+							autoImports = true,
+							completeFunctionCalls = true,
+						},
 					},
 					javascript = {
 						format = {
