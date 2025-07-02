@@ -140,6 +140,18 @@ return {
 				capabilities = capabilities,
 			})
 
+			-- Tailwind CSS
+			lspconfig.tailwindcss.setup({
+				on_attach = on_attach,
+				capabilities = capabilities,
+				filetypes = {
+					"html",
+					"css",
+					"scss",
+					"svelte",
+				},
+			})
+
 			-- 其他 LSP
 			local servers = { "html", "cssls", "jsonls", "yamlls", "sqlls", "bashls" }
 			for _, server in ipairs(servers) do
