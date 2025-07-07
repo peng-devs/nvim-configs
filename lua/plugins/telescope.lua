@@ -27,6 +27,5 @@ return {
 		vim.keymap.set("n", "<leader>fc", builtin.live_grep, { desc = "搜尋文字" })
 		vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "切換 buffer" })
 		vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "搜尋說明" })
-		vim.keymap.set("n", "/", builtin.current_buffer_fuzzy_find, { desc = "當前檔案搜尋" })
 	end,
 }

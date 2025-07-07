@@ -153,7 +153,7 @@ return {
 			})
 
 			-- 其他 LSP
-			local servers = { "html", "cssls", "jsonls", "yamlls", "sqlls", "bashls" }
+			local servers = { "html", "cssls", "jsonls", "yamlls", "sqlls", "bashls", "eslint" }
 			for _, server in ipairs(servers) do
 				lspconfig[server].setup({
 					on_attach = on_attach,
