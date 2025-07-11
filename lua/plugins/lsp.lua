@@ -32,10 +32,10 @@ return {
 				local opts = { noremap = true, silent = true }
 
 				buf_set_keymap("n", "<leader>l", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-				buf_set_keymap("n", "<leader>L", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
+				buf_set_keymap("n", "<leader>h", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 
 				-- 文檔
-				buf_set_keymap("n", "H", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+				buf_set_keymap("n", "<leader>d", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 
 				-- 重構
 				buf_set_keymap("n", "<leader>r", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
@@ -43,7 +43,7 @@ return {
 
 				-- 診斷
 				buf_set_keymap("n", "<leader>n", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-				buf_set_keymap("n", "<leader>d", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+				buf_set_keymap("n", "<leader>N", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 			end
 
 			-- 設定診斷符號
